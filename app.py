@@ -15,16 +15,16 @@ response = api.payment_request_create(
 	purpose="app test",
 	send_email=True,
 	email="tanayshah027@gmail.com",
-	redirect_url="https://salaryprices-api.herokuapp.com/payments"     #url_for('paymentredirect')     #"https://salaryprices-api.herokuapp.com/payments"
+	redirect_url="https://amvmpayments-api.herokuapp.com/payments"   ,  #url_for('paymentredirect')     #"https://salaryprices-api.herokuapp.com/payments"
 	)
     #rep = response['payment_request']['longurl']
-    return  'done' #rep #response['payment_request']['longurl']
-@app.route('/')
-def home():
-    amt = 15
-    pur = "Check"
-    #x = createPayment(amt,pur)
-    return render_template('index.html')
+    #return 'done' #rep #response['payment_request']['longurl']
+#@app.route('/')
+#def home():
+#    amt = 15
+#    pur = "Check"
+#    #x = createPayment(amt,pur)
+#    return render_template('index.html')
 
 @app.route('/payments',methods=['POST'])
 def paymentredirect():
@@ -34,7 +34,13 @@ def paymentredirect():
     id = request.args.get('id')
     stat = request.args.get('status')
     print(request.form['payment_request'])  # should display 'bar'
-    return render_template('index.html',text = "Thankyou for Purchasing, your payment is recieved")
+    dict = {
+        'text':"Thankyou for purchasing",
+        'id': id,
+        'status':stat
+
+    }
+    return render_template('index.html',dict)
 
 if __name__ == "__main__":
     app.run(debug=True)
