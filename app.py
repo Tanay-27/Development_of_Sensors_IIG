@@ -38,7 +38,7 @@ def paymentredirect():
     dict = {
         'text':"Thankyou for purchasing",
         'id': id,
-        'status':stat
+        'status':stat,
         'req':req
 
     }
