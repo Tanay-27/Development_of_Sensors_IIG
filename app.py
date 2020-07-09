@@ -15,7 +15,7 @@ response = api.payment_request_create(
 	purpose="app test",
 	send_email=True,
 	email="tanayshah027@gmail.com",
-	redirect_url="https://amvmpayments-api.herokuapp.com/payments",
+	redirect_url="https://amvmpayments-api.herokuapp.com/paymentrecieved/",
 	)
 
 #@app.route('/')
@@ -25,7 +25,7 @@ response = api.payment_request_create(
 #    #x = createPayment(amt,pur)
 #    return render_template('index.html')
 
-@app.route('/payments',methods=['GET'])
+@app.route('/paymentrecieved/',methods=['GET'])
 def paymentredirect():
     '''
     For rendering results on HTML GUI
