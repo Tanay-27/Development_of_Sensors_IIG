@@ -33,7 +33,7 @@ def paymentredirect():
     '''
     id = request.args.get('payment_id')
     stat = request.args.get('payemnt_status')
-    req = reuest.args.get('payment_reuqest_id')
+    req = request.args.get('payment_reuqest_id')
     print(request.form['payment_request'])  # should display 'bar'
     dict = {
         'text':"Thankyou for purchasing",
