@@ -25,7 +25,7 @@ response = api.payment_request_create(
 #    #x = createPayment(amt,pur)
 #    return render_template('index.html')
 
-@app.route('/paymentrecieved/',methods=['GET'])
+@app.route('/paymentrecieved/',methods=['POST'])
 def paymentredirect():
     '''
     For rendering results on HTML GUI
